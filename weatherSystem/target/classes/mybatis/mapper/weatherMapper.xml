@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lin.mapper.weatherMapper">
+
+    <select id="queryFZ" resultType="Weather">
+        select *
+        from weather.fuzhou;
+    </select>
+
+    <select id="queryBJ" resultType="Weather">
+        select *
+        from weather.beijing;
+    </select>
+
+    <select id="querySH" resultType="Weather">
+        select *
+        from weather.shanghai;
+    </select>
+
+    <insert id="updateFZ" parameterType="Weather">
+        insert into weather.fuzhou (fxDate, tempMax, tempMin, textDay)
+        values (#{fxDate},#{tempMax},#{tempMin},#{textDay});
+    </insert>
+
+    <insert id="updateBJ" parameterType="Weather">
+        insert into weather.beijing (fxDate, tempMax, tempMin, textDay)
+        values (#{fxDate},#{tempMax},#{tempMin},#{textDay});
+    </insert>
+
+    <insert id="updateSH" parameterType="Weather">
+        insert into weather.shanghai (fxDate, tempMax, tempMin, textDay)
+        values (#{fxDate},#{tempMax},#{tempMin},#{textDay});
+    </insert>
+
+    <delete id="deleteFZ">
+        truncate weather.fuzhou;
+    </delete>
+
+    <delete id="deleteBJ">
+        truncate weather.beijing;
+    </delete>
+
+    <delete id="deleteSH">
+        truncate weather.shanghai;
+    </delete>
+
+</mapper>
